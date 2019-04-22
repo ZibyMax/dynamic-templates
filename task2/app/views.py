@@ -9,21 +9,9 @@ class HomeView(TemplateView):
 class AboutView(TemplateView):
     template_name = 'app/about.html'
 
-    def get(self, request, *args, **kwargs):
-        context = {
-            'about_is_active': True
-        }
-        return render(request, self.template_name, context)
-
 
 class ContactsView(TemplateView):
     template_name = 'app/contacts.html'
-
-    def get(self, request, *args, **kwargs):
-        context = {
-            'contacts_is_active': True
-        }
-        return render(request, self.template_name, context)
 
 
 class ExamplesView(TemplateView):
@@ -44,8 +32,7 @@ class ExamplesView(TemplateView):
             'img': 'imac.jpg'
         }]
         context = {
-            'items': items,
-            'examples_is_active': True
+            'items': items
         }
         return render(request, self.template_name,
                       context)
