@@ -42,11 +42,7 @@ def format_num_comments(value):
 @register.filter
 def format_selftext(value, count):
     if value:
-        end = value[-1] if value[-1] in ['.', '!', '?'] else ''
-        text = ''.join(x for x in value if x.isalpha() or x == " ")
-        words = text.strip().split(' ')
+        words = value.split(' ')
         if len(words) > count * 2:
-            return ' '.join(words[:count]) + ' ... ' + ' '.join(words[len(words) - count:]) + end
-        else:
-            return ' '.join(words) + end
+            return ' '.join(words[:count]) + ' ... ' + ' '.join(words[len(words) - count:])
     return value
